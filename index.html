@@ -3,12 +3,20 @@
 <html>
 	<head>
 		<title>Stephanie North</title>
-
+    <meta name="description" content="A very strong name.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,700;1,300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Open+Sans:ital,wght@0,800;1,300&display=swap" rel="stylesheet">
 
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    
 		<style>
       @keyframes heartfade {
         0% {
@@ -42,6 +50,10 @@
         top: 1rem;
         left: 14vw;
       }
+
+      img {
+        width: 40px;
+      }
       
       .smile {
         display: inline-block;
@@ -55,11 +67,16 @@
 
       @media screen and (max-width: 400px) {
         main {
-          font-size: 10vw;
+          font-size: 12vw;
+        }
+        
+        .message {
+          font-size: 1.3rem;
+          left: 19vw;
         }
 
-        .message {
-          left: 19vw;
+        img {
+          width: 35px;
         }
       }
 
@@ -125,7 +142,7 @@
 	<body>
     <main id="main">
       <div class="message">
-        <img width="40" src="images/hand-drawn-arrow.png" />
+        <img src="images/hand-drawn-arrow.png" />
         your (very strong) domain name <span class="smile">:<span class="mouth">)</span></span>
       </div>
       <div class="name">
