@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,700;1,300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Open+Sans:ital,wght@0,800;1,300&display=swap" rel="stylesheet">
 
 		<style>
       @keyframes heartfade {
@@ -34,14 +35,36 @@
         font-size: 8vw;
       }
 
+      .message {
+        font-family: 'Caveat', cursive;
+        font-size: 1.5rem;
+        position: absolute;
+        top: 1rem;
+        left: 19vw;
+      }
+      
+      .smile {
+        display: inline-block;
+        transform: rotate(90deg) translate(2px, -8px);
+      }
+
+      .mouth {
+        display: inline-block;
+        transform: scale(1,0.6) translate(0px,4px);
+      }
+
       @media screen and (max-width: 400px) {
         main {
           font-size: 10vw;
         }
+
+        .message {
+          left: 12vw;
+        }
       }
 
       .name {
-        padding: 0.5rem 0.5rem 4rem;
+        padding: 0.5rem 0.5rem 3rem;
       }
 
       .firstname {
@@ -91,6 +114,10 @@
 
 	<body>
     <main id="main">
+      <div class="message">
+        <img width="40" src="images/hand-drawn-arrow.png" />
+        your domain if you want it <span class="smile">:<span class="mouth">)</span></span>
+      </div>
       <div class="name">
         <span class="firstname">Stephanie</span><span class="surname">North</span>
       </div>
