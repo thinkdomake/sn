@@ -16,7 +16,7 @@
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
-    
+
 		<style>
       @keyframes heartfade {
         0% {
@@ -44,6 +44,7 @@
       }
 
       .message {
+        display: flex;
         font-family: 'Caveat', cursive;
         font-size: 1.5rem;
         position: absolute;
@@ -53,6 +54,8 @@
 
       img {
         width: 40px;
+        height: 25px;
+        margin: -0.25rem 0.5rem 0 0;
       }
       
       .smile {
@@ -72,11 +75,18 @@
         
         .message {
           font-size: 1.3rem;
-          left: 19vw;
+          left: 28vw;
+          width: 11rem;
+        }
+
+        .tim {
+          bottom: 3rem;
         }
 
         img {
           width: 35px;
+          height: 22px;
+          margin: -0.15rem 0.5rem 0 0;
         }
       }
 
@@ -143,7 +153,9 @@
     <main id="main">
       <div class="message">
         <img src="images/hand-drawn-arrow.png" />
-        your (very strong) domain name <span class="smile">:<span class="mouth">)</span></span>
+        <div>
+          your (very strong) domain name <span class="smile">:<span class="mouth">)</span></span>
+        </div>
       </div>
       <div class="name">
         <span class="firstname">Stephanie</span><span class="surname">North</span>
