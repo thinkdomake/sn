@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
+<html>
+	<head>
+		<title>Stephanie North</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,700;1,300&display=swap" rel="stylesheet">
+
+		<style>
+      @keyframes heartfade {
+        0% {
+          opacity : 1;
+        }
+        50% {
+          opacity : 0;
+        }
+      }
+
+      body	{
+        position: relative;
+        font-family: 'Open Sans', sans-serif;
+        background-color : #ffceed;
+        margin: 0;
+        height: 100vh;
+      }
+
+      main {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 100vh;
+        font-size: 8vw;
+      }
+
+      @media screen and (max-width: 400px) {
+        main {
+          font-size: 10vw;
+        }
+      }
+
+      .name {
+        padding: 0.5rem 0.5rem 4rem;
+      }
+
+      .firstname {
+        font-weight: 700;
+      }
+      
+      .surname {
+        font-style: italic;
+        font-weight: 300;
+      }
+
+      #hearts {
+        position: absolute;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        height: 100vh;
+        width: 100vw;
+      }
+
+      .heart {
+        z-index : 999;
+        animation : heartfade 6s linear;
+        position : absolute; 
+      }
+
+      .heart:before,
+      .heart:after {
+        content : "";
+        background-color : #fc2a62;
+        position : absolute;
+        height : 30px;
+        width : 45px;
+        border-radius : 15px 0px 0px 15px;
+      }
+
+		.heart:before {
+			transform : rotate(45deg);
+		}
+
+		.heart:after {
+			left : 10.5px;
+			transform : rotate(135deg);
+		}
+		</style>
+	</head>
+
+	<body>
+    <main id="main">
+      <div class="name">
+        <span class="firstname">Stephanie</span><span class="surname">North</span>
+      </div>
+      <div id="hearts"></div>
+    </main>
+	</body>
+
+	<script>
+    
+    window.addEventListener('load', function() {
+      const duration = 3000;
+      const speed = 0.5;
+      const cursorXOffset = 0;
+      const cursorYOffset = -5;
+
+      var before = Date.now();
+      var id = setInterval(frame, 5);
+      var gr = setInterval(check, 100);
+      var heartsContainer = document.getElementById("hearts");
+      var mainContainer = document.getElementById("main");
+  
+      var hearts = [];
+      var down = false;
+      var event = null;
+
+      document.onmousedown = function(e) {
+        down = true;
+        event = e;
+      }
+
+      document.onmouseup = function(e) {
+        down = false;
+      }
+
+      document.onmousemove = function(e) {
+        down = true;
+        event = e;
+      }
+
+      document.ontouchstart = function(e) {
+        down = true;
+        event = e.touches[0];
+      }
+
+      document.ontouchend = function(e) {
+        down = false;
+      }
+
+      document.ontouchmove = function(e) {
+        event = e.touches[0];
+      }
+
+      function getRandomInt(max) {
+        return Math.floor(Math.random() * max);
+      }
+
+      function generateHeart(x, y, xBound, xStart, scale) {
+        var heart = document.createElement("div");
+        heart.setAttribute('class', 'heart');
+        heartsContainer.appendChild(heart);
+        heart.time = duration;
+        heart.x = x;
+        heart.y = y;
+        heart.bound = xBound;
+        heart.direction = xStart;
+        heart.style.left = heart.x + "px";
+        heart.style.top = heart.y + "px";
+        heart.scale = scale;
+        heart.style.transform = "scale(" + scale + "," + scale + ")";
+        if(hearts == null)
+          hearts = [];
+        hearts.push(heart);
+        return heart;
+      }
+
+      function frame() {
+        var current = Date.now();
+        var deltaTime = current - before;
+        before = current;
+        for(i in hearts)
+        {
+          var heart = hearts[i];
+          heart.time -= deltaTime;
+          if(heart.time > 0)
+          {
+            heart.y -= speed;
+            heart.style.top = heart.y + "px";
+            heart.style.left = heart.x + heart.direction * heart.bound * Math.sin(heart.y * heart.scale / 30) / heart.y * 200 + "px";
+          }
+          else
+          {
+            heart.parentNode.removeChild(heart);
+            hearts.splice(i, 1);
+          }
+        }
+      }
+
+      function check() {
+        // if(down) {
+          var start = 1 - Math.round(Math.random()) * 2;
+          var scale = Math.random() * Math.random() * 0.8 + 0.2;
+          var bound = 30 + Math.random() * 20;
+          // generateHeart(event.pageX - heartsContainer.offsetLeft + cursorXOffset, event.pageY - heartsContainer.offsetTop + cursorYOffset, bound, start, scale);
+          generateHeart(getRandomInt(mainContainer.offsetWidth), getRandomInt(mainContainer.offsetHeight), bound, start, scale);
+        // }
+      }
+    })
+
+	</script>
+</html>
