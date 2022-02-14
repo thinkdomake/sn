@@ -68,26 +68,14 @@
         transform: scale(1,0.6) translate(0px,4px);
       }
 
-      @media screen and (max-width: 400px) {
-        main {
-          font-size: 12vw;
-        }
-        
-        .message {
-          font-size: 1.3rem;
-          left: 28vw;
-          width: 11rem;
-        }
-
-        .tim {
-          bottom: 3rem;
-        }
-
-        img {
-          width: 35px;
-          height: 22px;
-          margin: -0.15rem 0.5rem 0 0;
-        }
+      .tim {
+        font-family: 'Caveat', cursive;
+        font-size: 1.5rem;
+        position: absolute;
+        bottom: 1rem;
+        left: 0;
+        right: 0;
+        text-align: center;
       }
 
       .name {
@@ -101,16 +89,6 @@
       .surname {
         font-style: italic;
         font-weight: 300;
-      }
-
-      .tim {
-        font-family: 'Caveat', cursive;
-        font-size: 1.5rem;
-        position: absolute;
-        bottom: 1rem;
-        left: 0;
-        right: 0;
-        text-align: center;
       }
 
       #hearts {
@@ -138,14 +116,36 @@
         border-radius : 15px 0px 0px 15px;
       }
 
-		.heart:before {
-			transform : rotate(45deg);
-		}
+      .heart:before {
+        transform : rotate(45deg);
+      }
 
-		.heart:after {
-			left : 10.5px;
-			transform : rotate(135deg);
-		}
+      .heart:after {
+        left : 10.5px;
+        transform : rotate(135deg);
+      }
+
+      @media screen and (max-width: 400px) {
+        main {
+          font-size: 12vw;
+        }
+        
+        .message {
+          font-size: 1.3rem;
+          left: 28vw;
+          width: 11rem;
+        }
+
+        .tim {
+          bottom: 3rem;
+        }
+
+        img {
+          width: 35px;
+          height: 22px;
+          margin: -0.15rem 0.5rem 0 0;
+        }
+      }
 		</style>
 	</head>
 
